@@ -1,0 +1,427 @@
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    background-color: #0a0a12;
+    color: #e0e0e0;
+    line-height: 1.6;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(28, 28, 60, 0.2) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(28, 28, 60, 0.2) 0%, transparent 20%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 2px solid #3a3a5a;
+    background-color: #121225;
+    box-shadow: 0 0 20px rgba(60, 60, 150, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de scanlines para dar vibe retro */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #1a1a3a, #2a2a5a);
+    padding: 20px;
+    border-bottom: 3px solid #4a4a8a;
+    text-align: center;
+    position: relative;
+}
+
+.site-title {
+    font-size: 2.5rem;
+    color: #e0e0ff;
+    text-shadow: 2px 2px 0 #4a4a8a, 4px 4px 0 #000;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.site-subtitle {
+    font-size: 1.2rem;
+    color: #a0a0d0;
+    text-shadow: 1px 1px 0 #000;
+    margin-bottom: 15px;
+}
+
+/* Menu de navegação estilo RPG */
+nav {
+    background-color: #0f0f1f;
+    padding: 10px;
+    border-top: 2px solid #3a3a5a;
+    border-bottom: 2px solid #3a3a5a;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    margin: 0 15px;
+}
+
+.nav-link {
+    color: #b0b0e0;
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 1px solid #4a4a8a;
+    border-radius: 4px;
+    transition: all 0.3s;
+    display: block;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    background-color: #2a2a5a;
+    color: #e0e0ff;
+    box-shadow: 0 0 10px rgba(100, 100, 255, 0.5);
+}
+
+/* Conteúdo principal */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Área de conteúdo principal */
+.content {
+    flex: 3;
+    min-width: 300px;
+}
+
+/* Sidebar */
+.sidebar {
+    flex: 1;
+    min-width: 250px;
+    background-color: #151530;
+    padding: 15px;
+    border: 1px solid #3a3a5a;
+    border-radius: 5px;
+}
+
+/* Estilo para artigos/posts */
+.post {
+    background-color: #151530;
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 1px solid #3a3a5a;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.post-title {
+    color: #c0c0ff;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4a4a8a;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.post-meta {
+    color: #8080b0;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-content {
+    margin-bottom: 20px;
+}
+
+/* Elementos multimídia */
+.media-container {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.pixel-image {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    max-width: 100%;
+    border: 2px solid #4a4a8a;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.caption {
+    color: #8080b0;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* Grid para evidências */
+.evidence-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.evidence-grid .media-container {
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
+}
+
+/* Elementos interativos - Easter Eggs */
+.easter-egg {
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.easter-egg:hover {
+    transform: scale(1.05);
+}
+
+.easter-egg::after {
+    content: "?";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff5555;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.easter-egg:hover::after {
+    opacity: 1;
+}
+
+/* Modal para Easter Eggs */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: #151530;
+    padding: 30px;
+    border: 3px solid #4a4a8a;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 30px rgba(100, 100, 255, 0.5);
+}
+
+.modal-title {
+    color: #ff5555;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #a0a0d0;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.widget {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3a3a5a;
+}
+
+.widget-title {
+    color: #c0c0ff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #4a4a8a;
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #1a1a3a;
+    border-left: 3px solid #4a4a8a;
+    transition: all 0.3s;
+}
+
+.file-item:hover {
+    background-color: #2a2a5a;
+    border-left-color: #6a6aaa;
+}
+
+.file-link {
+    color: #b0b0e0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.file-link::before {
+    content: "📁";
+    margin-right: 8px;
+}
+
+.character {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #1a1a3a;
+    border-radius: 5px;
+}
+
+.character-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: #4a4a8a;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.character-info h4 {
+    color: #c0c0ff;
+    margin-bottom: 5px;
+}
+
+.character-info p {
+    color: #8080b0;
+    font-size: 0.9rem;
+}
+
+
+footer {
+    background: linear-gradient(to right, #1a1a3a, #2a2a5a);
+    padding: 20px;
+    text-align: center;
+    border-top: 3px solid #4a4a8a;
+    margin-top: 30px;
+}
+
+.footer-info {
+    color: #a0a0d0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+
+
+/* Animações */
+@keyframes flicker {
+    0% { opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+.flicker {
+    animation: flicker 3s infinite;
+}
+
+/* Estilo para citações */
+blockquote {
+    border-left: 3px solid #4a4a8a;
+    padding-left: 15px;
+    margin: 20px 0;
+    color: #a0a0d0;
+    font-style: italic;
+}
+
+/* Botões estilo RPG */
+.rpg-button {
+    display: inline-block;
+    background: linear-gradient(to bottom, #3a3a7a, #2a2a5a);
+    color: #e0e0ff;
+    padding: 10px 20px;
+    border: 2px solid #5a5aaa;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #000;
+    box-shadow: 0 4px 0 #1a1a3a;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.rpg-button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #1a1a3a;
+    background: linear-gradient(to bottom, #4a4a8a, #3a3a7a);
+}
+
+/* Barra de progresso estilo RPG */
+.rpg-bar {
+    height: 20px;
+    background-color: #1a1a3a;
+    border: 1px solid #4a4a8a;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.rpg-progress {
+    height: 100%;
+    background: linear-gradient(to right, #4a4a8a, #6a6aaa);
+    border-radius: 10px;
+    width: 65%; /* Valor de exemplo */
+}
